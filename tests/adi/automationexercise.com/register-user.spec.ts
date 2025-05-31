@@ -27,9 +27,7 @@ async function cookies(page) {
     .nth(3)
     .click();
   await page
-    .getByText(
-      'Develop and improve servicesInformation about your activity on this service,'
-    )
+    .getByText('Develop and improve servicesInformation about your activity on this service,')
     .click();
   await page
     .locator('label')
@@ -46,7 +44,7 @@ async function cookies(page) {
   await page.getByRole('button', { name: 'Confirm choices' }).click();
 }
 
-test.only('register user', async ({ page }) => {
+test('register user', async ({ page }) => {
   await page.goto('https://automationexercise.com/');
   cookies(page);
   selectors.setTestIdAttribute('data-qa');
@@ -59,9 +57,7 @@ test.only('register user', async ({ page }) => {
   await page.getByTestId('signup-name').fill(firstName);
   await page.getByTestId('signup-email').fill('a1@b4');
   await page.getByRole('button', { name: 'Signup' }).click();
-  await page
-    .getByRole('heading', { name: 'ENTER ACCOUNT INFORMATION' })
-    .isVisible();
+  await page.getByRole('heading', { name: 'ENTER ACCOUNT INFORMATION' }).isVisible();
   await page.getByLabel('Mr.').check();
   await page.getByLabel('Password').fill('123');
   await page.getByTestId('days').selectOption('10');
@@ -87,7 +83,5 @@ test.only('register user', async ({ page }) => {
   await page.getByRole('heading', { name: 'Account Deleted!' }).isVisible();
   await page.getByRole('link', { name: 'Continue' }).click();
 
-  await expect(
-    page.getByRole('link', { name: ' Signup / Login' })
-  ).toBeVisible();
+  await expect(page.getByRole('link', { name: ' Signup / Login' })).toBeVisible();
 });
