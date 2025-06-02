@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { link } from 'fs';
 
-test.only('Verify Subscription in Homepage', async ({ page }) => {
+test('Verify Subscription in Homepage', async ({ page }) => {
   await page.goto('https://automationexercise.com/');
   await page.getByRole('button', { name: 'Consent' }).click();
 
