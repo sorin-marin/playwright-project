@@ -2,46 +2,47 @@ import { expect, test } from '@playwright/test';
 import { link } from 'fs';
 import { text } from 'stream/consumers';
 
-test.only('Place Order: Register while Checkout', async ({ page }) => {
+test('Place Order: Register while Checkout', async ({ page }) => {
   page.goto('https://automationexercise.com/');
   await page.getByRole('button', { name: 'Consent' }).click();
 
-  // const ContinueShopping = page.getByRole('button', { name: 'Continue Shopping' });
+  //Adding products in the Basket.
 
-  // const productImage7 = page.locator('img[src="/get_product_picture/7"]');
-  // await productImage7.hover();
-  // await page
-  //   .locator(
-  //     'div:nth-child(9) > .product-image-wrapper > .single-products > .product-overlay > .overlay-content > .btn'
-  //   )
-  //   .click();
-  // await ContinueShopping.click();
+  const ContinueShopping = page.getByRole('button', { name: 'Continue Shopping' });
 
-  // const productImage8 = page.locator('img[src="/get_product_picture/8"]');
-  // await productImage8.hover();
-  // await page
-  //   .locator(
-  //     'div:nth-child(10) > .product-image-wrapper > .single-products > .product-overlay > .overlay-content > .btn'
-  //   )
-  //   .click();
-  // await ContinueShopping.click();
+  const productImage7 = page.locator('img[src="/get_product_picture/7"]');
+  await productImage7.hover();
+  await page
+    .locator(
+      'div:nth-child(9) > .product-image-wrapper > .single-products > .product-overlay > .overlay-content > .btn'
+    )
+    .click();
+  await ContinueShopping.click();
 
-  // const productImage11 = page.locator('img[src="/get_product_picture/11"]');
-  // await productImage11.hover();
-  // await page
-  //   .locator(
-  //     'div:nth-child(11) > .product-image-wrapper > .single-products > .product-overlay > .overlay-content > .btn'
-  //   )
-  //   .click();
-  // await ContinueShopping.click();
+  const productImage8 = page.locator('img[src="/get_product_picture/8"]');
+  await productImage8.hover();
+  await page
+    .locator(
+      'div:nth-child(10) > .product-image-wrapper > .single-products > .product-overlay > .overlay-content > .btn'
+    )
+    .click();
+  await ContinueShopping.click();
 
-  // await page.getByRole('link', { name: ' Cart' }).click();
-  // expect(page.url()).toEqual('https://automationexercise.com/view_cart');
-  // await page.getByText('Proceed To Checkout').click();
+  const productImage11 = page.locator('img[src="/get_product_picture/11"]');
+  await productImage11.hover();
+  await page
+    .locator(
+      'div:nth-child(11) > .product-image-wrapper > .single-products > .product-overlay > .overlay-content > .btn'
+    )
+    .click();
+  await ContinueShopping.click();
+
+  await page.getByRole('link', { name: ' Cart' }).click();
+  expect(page.url()).toEqual('https://automationexercise.com/view_cart');
+  await page.getByText('Proceed To Checkout').click();
 
   //Account creation.
-  //await page.getByRole('link', { name: 'Register / Login' }).click();
-  await page.getByRole('link', { name: ' Signup / Login' }).click();
+  await page.getByRole('link', { name: 'Register / Login' }).click();
 
   const Name = 'John';
   const Email = 'John1925@b.com';
