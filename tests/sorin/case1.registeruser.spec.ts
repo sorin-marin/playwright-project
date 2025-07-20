@@ -10,8 +10,7 @@ test('register user', async ({ page }) => {
   await expect(page.getByText('New User Signup!')).toBeVisible();
   await page.locator('form').filter({ hasText: 'Signup' }).getByPlaceholder('Name').fill('John');
   await page
-    .locator('form')
-    .filter({ hasText: 'Signup' })
+    .getByRole('form', { name: 'Signup' })
     .getByPlaceholder('Email Address')
     .fill('John1912@b.com');
   await page.getByRole('button', { name: 'Signup' }).click();

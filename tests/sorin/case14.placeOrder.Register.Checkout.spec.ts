@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 
-test.only('Place Order: Register while Checkout', async ({ page }) => {
+test('Place Order: Register while Checkout', async ({ page }) => {
   page.goto('https://automationexercise.com/');
   await page.getByRole('button', { name: 'Consent' }).click();
 

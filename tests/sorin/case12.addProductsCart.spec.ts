@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { link } from 'fs';
 
-test.only('Add products in Cart', async ({ page }) => {
+test('Add products in Cart', async ({ page }) => {
   await page.goto('https://automationexercise.com/');
 
   await page.getByRole('button', { name: 'Consent' }).click();
