@@ -52,7 +52,11 @@ export default defineConfig({
     /* Test against mobile viewports. */
     // {
     //   name: 'Mobile Chrome',
-    //   use: { ...devices['Pixel 9a'] },
+    //   use: { ...devices['Pixel 9a'], 
+    //   viewport: { width: 390, height: 844 },
+    //   isMobile: true,
+    //   hasTouch: true
+    //   },
     // },
     // {
     //   name: 'Mobile Safari',
